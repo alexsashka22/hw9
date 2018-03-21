@@ -1,104 +1,139 @@
-<?php 
-    class CarClass {
-        public $name;
-        public $speed;
-        public $color = 'Green';
-        public $model;
-        
-        public function getSpeedStart(){
-            this->speed = 100;
-        }
+<?php
+class CarClass
+ {
+    public $name;
+    public $speed;
+    public $color = 'Green';
+
+    public function describe()
+    {
+        return $this->name . " has speed " . $this->speed . " km/h and color " . $this->color;
     }
+}
 
 $car1 = new CarClass();
-echo $car1->name = 'BMW';
-echo $car1->speed = '160';
-echo $car1->color;
+echo $car1->name = 'BMW' . '<br />';
+echo $car1->speed = 160 . '<br />';
+echo $car1->color . '<br />';
 
 $car2 = new CarClass();
-echo $car2->name = 'ВАЗ';
+$car2->name = 'ВАЗ';
 $car2->speed = 120;
-echo $car2->getSpeedStart();
+$car2->color = 'white';
+$car2->describe();
+echo $car2->describe() . '<br />';
 
-    class TvClass {
-        public $name;
-        public $color = 'Black';
-        public $material = 'Plastic'
-        
-        public function changeColor($color){
-            this->color = $color;
-        }
+echo "<pre>";
+class TvClass
+{
+    public $name;
+    public $color = 'Black';
+    public $material = 'Plastic';
+
+    public function changeColor($color)
+    {
+      $this->color = $color;
     }
+}
 
 $tv1 = new TvClass();
-echo $tv1->name = 'LG';
-echo $tv1->color;
-echo $tv1->material;
+echo $tv1->name = 'LG' . ' ';
+echo $tv1->color . ' ';
+echo $tv1->material . '<br />';
 
 $tv2 = new TvClass();
-echo $tv2->name = 'SAMSUNG';
-echo $tv2->changeColor('Grey');
-echo $tv2->material;
+echo 'New TV ' . $tv2->name = 'SAMSUNG' . ' color ';
+$tv2->changeColor('Grey');
+echo $tv2->color . ' made from ';
+echo $tv2->material . '<br />';
 
-    class Pen {
-        public $material = wood;
-        public $ink = 'Blue';
-        
-        public function setColor () {
-            $color = this->color;
-        }
+echo "<pre>";
+class Pen
+{
+    public $name = 'ручка';
+
+    public function setColor ()
+    {
+        echo '"У меня есть цвет!"' . '<br/>';
     }
+    public function describe()
+    {
+        return "Это " . $this->name . ", материал изготовления - " . $this->material . ", чернила - " . $this->ink . ", цвет корпуса - " .  $this->color;
+    }
+}
 
 $pen1 = new Pen();
-echo $pen1->ink;
-echo $pen1->color;
-echo $pen1->material;
+$pen1->material = "пластик";
+$pen1->ink = "черные";
+$pen1->color = "синий";
+$pen1->describe();
+echo $pen1->describe() . '<br />';
+
 
 $pen2 = new Pen();
-echo $pen2->ink;
+$pen2->material = "металл";
+$pen2->ink = "синие";
+$pen2->color = "серый";
+$pen2->describe();
+echo $pen2->describe() . ', вдруг резко крикнула: ';
 $pen2->setColor();
-echo $pen2->color;
-echo $pen2->material;
 
-    class Duck {
-        public $animal = 'Bird';
-        public $sex = 'Female'
-        public $age;
-        
-        public function setAge () {
-            if (this->age > 12) {
-                return 'Утке осталось недолго'
-            }
+echo "<pre>";
+class Duck
+{
+    const CONSTANT = 'Bird';
+    public $sex = 'Female';
+    public $age = 12;
+
+    public function showConstant ()
+    {
+      echo self::CONSTANT;
+    }
+
+    public function __construct ($age)
+    {
+      // $this->age = $age;
+        if ($this->age < $age)
+        {
+          echo 'Утке осталось недолго :(, потому что ей ' .  $age. ' лет <br />';
+        }
+        else {
+          echo 'Утка ещё молода! Ей всего ' .  $age. ' лет <br />';
         }
     }
-$duck1 = new Duck();
-$duck1->setAge();
-echo $duck1->age = 13;
-echo $duck1->sex;
+}
 
-$duck2 = new Duck();
-echo $duck2->$animal;
-echo $duck2->$age = 5;
+$duck1 = new Duck(13);
+echo "Тип живого существа - " . Duck::CONSTANT;
+echo '; пол - ' . $duck1->sex . ';' . '<br />';
 
+$duck2 = new Duck(5);
+echo "Тип живого существа - " . Duck::CONSTANT;
+echo '; пол - ' . $duck2->sex . ';' . '<br />';
 
-    class Product {
-        public $material;
-        public $category;
-        public $name;
-        
-        public function setColor () {
-            $color = this->color;
-        }
+echo "<pre>";
+class Product
+{
+    public $name;
+    public $category;
+    public $material;
+
+    public function __construct ($name, $category, $material)
+    {
+      $this->name = $name;
+      $this->category = $category;
+      $this->material = $material;
     }
-$product1 = new Product();
-echo $product1->ink;
-echo $product1->color;
-echo $product1->material;
+}
 
-$product2 = new Product();
-echo $product2->ink;
-$product2->setColor();
-echo $product2->color;
-echo $product2->material;
+$product1 = new Product('Тетрадь', 'Канцелярка', 'Бумага');
+echo $product1->name . ' из категории ';
+echo $product1->category . ', сделана из материала ';
+echo $product1->material . '<br />';
+
+$product2 = new Product('Чашка', 'Посуда', 'Керамика');
+echo $product2->name . ' из категории ';
+echo $product2->category . ', сделана из материала ';
+echo $product2->material . '<br />';
 
 ?>
