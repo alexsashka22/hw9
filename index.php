@@ -1,6 +1,6 @@
 <?php
 class CarClass
- {
+{
     public $name;
     public $speed;
     public $color = 'Green';
@@ -32,7 +32,7 @@ class TvClass
 
     public function changeColor($color)
     {
-      $this->color = $color;
+        $this->color = $color;
     }
 }
 
@@ -87,7 +87,7 @@ class Duck
 
     public function showConstant ()
     {
-      echo self::CONSTANT;
+        echo self::CONSTANT;
     }
 
     public function __construct ($age)
@@ -95,10 +95,10 @@ class Duck
       // $this->age = $age;
         if ($this->age < $age)
         {
-          echo 'Утке осталось недолго :(, потому что ей ' .  $age. ' лет <br />';
+            echo 'Утке осталось недолго :(, потому что ей ' .  $age. ' лет <br />';
         }
         else {
-          echo 'Утка ещё молода! Ей всего ' .  $age. ' лет <br />';
+            echo 'Утка ещё молода! Ей всего ' .  $age. ' лет <br />';
         }
     }
 }
@@ -120,9 +120,9 @@ class Product
 
     public function __construct ($name, $category, $material)
     {
-      $this->name = $name;
-      $this->category = $category;
-      $this->material = $material;
+        $this->name = $name;
+        $this->category = $category;
+        $this->material = $material;
     }
 }
 
